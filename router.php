@@ -7,7 +7,8 @@ include 'config/connection.php';
 
 if ($_SERVER['REQUEST_METHOD']=='GET') {
   if ($_SERVER['REQUEST_URI']=='/Paczkolab/router.php/user') {
-
+    $newUser = new User();
+    
   }else {
 
   }
