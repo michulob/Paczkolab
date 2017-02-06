@@ -1,9 +1,8 @@
 <?php
 
 /*
- *    Class reprezent one User
- *
- */
+*  Class reprezent one User
+*/
 class User{
 
   private $id;
@@ -12,6 +11,7 @@ class User{
   private $surname;
   private $credits;
   private $hashedPassword;
+  static public $connectionPDO;
 
   public function __construct(){
     $this->id = -1;
