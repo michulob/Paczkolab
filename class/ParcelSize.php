@@ -1,6 +1,6 @@
 <?php
 
-class PackSize{
+class ParcelSize{
 
   private $id;
   private $userCredits;

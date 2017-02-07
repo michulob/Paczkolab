@@ -1,6 +1,6 @@
 <?php
 
-class Package{
+class Parcel{
 
   private $id;
   private $userId;

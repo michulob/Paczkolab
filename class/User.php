@@ -6,7 +6,7 @@
 class User{
 
   private $id;
-  private $address;
+  private $addressId;
   private $name;
   private $surname;
   private $credits;
@@ -15,7 +15,7 @@ class User{
 
   public function __construct(){
     $this->id = -1;
-    $this->address = '';
+    $this->addressId = NULL;
     $this->name = '';
     $this->surname = '';
     $this->credits = NULL;
@@ -25,8 +25,8 @@ class User{
   public function getId(){
     return $this->id;
   }
-  public function getAddress(){
-    return $this->address;
+  public function getAddressId(){
+    return $this->addressId;
   }
   public function getName(){
     return $this->name;
@@ -42,8 +42,8 @@ class User{
   }
 
 
-  public function setAddress($newAddress){
-    $this->address = $newAddress;
+  public function setAddressId($newAddressId){
+    $this->addressId = $newAddressId;
     return TRUE;
   }
   public function setName($newName){
@@ -59,13 +59,28 @@ class User{
     return TRUE;
   }
   public function setHashedPassword($newPassword){
-    $this->hashedPassword = hash( $newPassword, PASSWORD_BCRYPT);
+    $this->hashedPassword = password_hash( $newPassword, PASSWORD_BCRYPT);
     return TRUE;
   }
 
   public function loadFromDB($id){
+      $sql = 'SELECT * FROM user WHERE id=?';
+      $result = self::$connectionPDO->prepare($sql);
+      $result->execute([$id]);
+      if ($result==TRUE && $result->rowCount()==1){
+        $row = $result->fetch(PDO::FETCH_ASSOC);
 
-  }
+        $this->id = $row['id'];
+        $this->addressId = $row['address_id'];
+        $this->name = $row['name'];
+        $this->surname = $row['surname'];
+        $this->credits = $row['credits'];
+        $this->hashedPassword = $row['hashed_password'];
+        // not true because usage on view
+        return $row;
+      }
+      return NULL;
+    }
 
   public function create(){
 
