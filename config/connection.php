@@ -12,6 +12,4 @@ $connection = new PDO("mysql:host=".DB_HOST.";dbname=".DB_DB.";charset=UTF8", DB
 
 User::$connectionPDO = $connection;
 
-// var_dump(User::$connectionPDO);
-
 ?>
