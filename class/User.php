@@ -65,7 +65,7 @@ class User{
 
   public function loadFromDB($id){
       $sql = 'SELECT * FROM user WHERE id=?';
-      $result = self::$connectionPDO->prepare($sql);
+      $result = Self::$connectionPDO->prepare($sql);
       $result->execute([$id]);
       if ($result==TRUE && $result->rowCount()==1){
         $row = $result->fetch(PDO::FETCH_ASSOC);
@@ -80,7 +80,7 @@ class User{
         return $row;
       }
       return NULL;
-    }
+  }
 
   public function create(){
 
@@ -95,7 +95,15 @@ class User{
   }
 
   static public function loadAllFromDB(){
-
+    $sql = 'SELECT * FROM user';
+    if ($result = Self::$connectionPDO->query($sql)){
+      $row = [];
+      foreach ($result as $key => $value) {
+        $row[$key] = $value;
+      }
+      return $row;
+    }
+    return NULL;
   }
 
 
