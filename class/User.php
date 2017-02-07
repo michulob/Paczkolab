@@ -59,7 +59,7 @@ class User{
     return TRUE;
   }
   public function setHashedPassword($newPassword){
-    $this->hashedPassword = hash($newPassword, PASSWORD_BCRYPT);
+    $this->hashedPassword = hash( $newPassword, PASSWORD_BCRYPT);
     return TRUE;
   }
 

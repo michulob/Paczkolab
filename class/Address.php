@@ -46,6 +46,19 @@ class Address{
     $this->flatNumber = $newFlatNumber;
   }
 
+  public function loadFromDB($id){
+
+  }
+
+  public function create(){
+
+  }
+
+  static public function loadAllFromDB(){
+
+  }
+
+
 }
 
 

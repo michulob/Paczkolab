@@ -30,6 +30,31 @@ class Package{
     $this->size = $newSize;
   }
 
+  public function loadByIdFromDB($id){
+
+  }
+
+  public function loadByUserIdFromDB($userId){
+
+  }
+
+  public function create(){
+
+  }
+
+  public function update(){
+
+  }
+
+  public function deleteFromDB(){
+
+  }
+
+  static public function loadAllFromDB(){
+
+  }
+
+
 }
 
 

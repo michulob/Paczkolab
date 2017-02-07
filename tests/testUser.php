@@ -15,6 +15,18 @@ if($oUser instanceof User){
 }
 
 
+function testSets (User $oUser){
+  $oUser->setAddress('Sfornegacie 15u/333');
+  $oUser->setName('Andrzej');
+  $oUser->setSurname('Gołota');
+  $oUser->setCredits('miliord baryłek ropy w złocie');
+  $oUser->setHashedPassword('oddajoszczednosci');
+
+  var_dump($oUser);
+}
+
+
+testSets($oUser);
 //to do ! tests get and set function
 //to do !!! write function to tests
 
